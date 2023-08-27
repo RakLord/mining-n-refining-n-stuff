@@ -1,0 +1,257 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    animation-duration: 0.1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0,01ms !important;
+    scroll-behavior: auto !important;
+}
+
+
+* {
+    margin: 0;
+}
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: #101010;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    font-weight: bolder;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#header {
+    height: 30px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 0 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid white;
+}
+
+
+#main-container {
+    display: flex;
+    justify-content: space-between;
+    height: calc(100vh - 30px); /* Subtracting the header height */
+    box-sizing: border-box;
+}
+
+#left-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    width: 20%;
+    border-right: solid rgba(255, 255, 255, 0.5) 2px;
+    padding-left: 1px; 
+}
+
+#left-container > * {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    margin-bottom: 20px;
+    width: 90%;
+}
+
+#right-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+}
+
+#data-display {
+    padding: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
+    line-height: 0px;
+}
+
+.data-container {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.data-container > *:last-child {
+    padding-bottom: 10px;
+}
+
+.data-container>.right-snap{
+    margin-left: auto;
+}
+
+#constants {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#constants h2 {
+    font-size: 1.3em;
+    font-weight: bolder;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+#constants hr {
+    border: none;
+    border-top: 1px solid white;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#constant-items p {
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+
+#tabs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+
+#tabs > *:last-child  {
+    margin-bottom: 10px;
+}
+
+.tab {
+    width: 90%;
+    border: 1px solid white;
+    cursor: pointer;
+    margin-top: 10px;
+    padding: 8px;
+}
+
+.tab:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.container-tab{
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    height: 100%;
+    width: 90%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:flex-start;
+}
+
+.spacer {
+    height: 40px;
+}
+
+p1 {
+    font-size: 3em;
+}
+
+p2 {
+    font-size: 2em;
+}
+
+.spaced {
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.container-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-row {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.button{
+    width: 10%;
+    height: 8%;
+    max-height: 160px;
+    max-width: 300px;
+    min-width: 48px;
+    min-height: 32px;
+    background-color: rgba(0,0,0,0.2);
+    color: white;
+    border: 2px solid white;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.affordable {
+    animation: spiral-animation 10s linear infinite;
+}
+  
+@keyframes spiral-animation {
+    0% {
+      border-color: red;
+    }
+    25% {
+      border-color: blue;
+    }
+    50% {
+      border-color: green;
+    }
+    75% {
+      border-color: yellow;
+    }
+    100% {
+      border-color: red;
+    }
+}
+
+
+
+.inventory-grid {
+    margin-top: 1rem;
+    width: 80%;
+    border: 2px solid white;
+    min-height: 90px;
+    padding: 0.2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 80px);
+    grid-auto-rows: 80px;
+    grid-gap: 1rem;
+}
+
+.inventory-grid .inventory-item {
+    width: 80px;
+    height: 80px;
+    border: 1px solid hsla(0, 0%, 25%, 50%);
+    padding: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    user-select: none;
+    cursor: pointer;
+
+}
+
+.inventory-grid .inventory-item > h4{
+    text-transform:  uppercase;
+    text-decoration: underline;
+}
