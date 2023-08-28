@@ -78,7 +78,8 @@ export function updateInventory(inv) {
                     const inventoryItem = $(`.inventory-item:has(h4:contains('${resource}'))`);
                     const valueParagraph = inventoryItem.find('p');
                     if (!valueParagraph.first().text()) {
-                        createInventoryItem(resource, game.data.minePower, $("#raw-materials-inventory"));
+                        createInventoryItem(resource, newValue, $("#raw-materials-inventory"));
+                    
                     }
                     valueParagraph.text(newValue);
                 }
