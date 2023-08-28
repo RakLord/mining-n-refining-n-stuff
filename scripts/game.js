@@ -1,4 +1,4 @@
-class Game {
+export class Game {
     constructor(data) {
         this.version = "0.0.1";
 
@@ -55,7 +55,6 @@ class Game {
         let savedGame = JSON.parse(gameData);
         Object.assign(this, savedGame);
         this.convertDecimal();
-
         console.log(this);
         console.log("loaded");
     }
@@ -64,5 +63,3 @@ class Game {
         this.data.money = new Decimal(this.data.money);
     }
 }
-
-

@@ -1,7 +1,10 @@
-import { headerText, formatValue, createInventoryItem, mine} from "./functions.js";
+
+import { Game } from "./game.js";
+import { headerText, formatValue, createInventoryItem, mine, updateInventory} from "./functions.js";
+import { updateData } from "./dom.js";
+import { switchTab } from "./tabs.js";
 import { settingsInit } from "./settings.js";
 
-let game;
 let dataDisplays = {}
 
 const containers = {
@@ -21,12 +24,14 @@ $(document).ready(function() {
 
 function init() {
     console.log("init start");
-    game = new Game();
+    window.game = new Game();
+
     setup(game, containers, createInventoryItem);
     dataDisplays.money = $("#data-money");
 
 
-    settingsInit(game, containers.settingsContainer);
+    settingsInit();
+    
 
     $("#tab0").on("click", function() {switchTab(0, game);});
     $("#tab1").on("click", function() {switchTab(1, game);});
@@ -48,16 +53,14 @@ function tick() {
     game.frameCount++;
     // Runs every 60 frames
     if (game.frameCount >= 60 / game.fpsLimit) {
-        game.gameFrame++; // First in "if" statement
-
-        // game.data.money = game.data.money.plus(value to increase by);
+        game.gameFrame++; // First
         
         if (game.data.mined == true) {
             mine(game);
         }
         updateData(dataDisplays, game, formatValue);
         
-        game.frameCount = 0; // Last in "if" statement
+        game.frameCount = 0; // Last
     }        
     requestAnimationFrame(tick);
 }

@@ -59,23 +59,34 @@ export function mine(game) {
 
     if (game.data.rawMaterials.hasOwnProperty(resource)) {
         game.data.rawMaterials[resource] += game.data.minePower;
-        updateInventory(game, "raw");
+        updateInventory("raw");
     } else { // If the item is not in inv display already
         game.data.rawMaterials[resource] = game.data.minePower;
         createInventoryItem(resource, game.data.minePower, $("#raw-materials-inventory"))
+        updateInventory("raw");
     }
 }
 
-function updateInventory(game, inv) {
+export function updateInventory(inv) {
     switch(inv){
         case "raw":
+            console.log("Raw");
+            console.log(game.data.rawMaterials)
             for (const resource in game.data.rawMaterials) {
                 if (game.data.rawMaterials.hasOwnProperty(resource)) {
                     const newValue = game.data.rawMaterials[resource];
                     const inventoryItem = $(`.inventory-item:has(h4:contains('${resource}'))`);
                     const valueParagraph = inventoryItem.find('p');
+                    if (!valueParagraph.first().text()) {
+                        createInventoryItem(resource, game.data.minePower, $("#raw-materials-inventory"));
+                    }
                     valueParagraph.text(newValue);
                 }
             }
     }
+}
+
+export function loadAndUpdate() {
+    game.loadGame();
+    updateInventory("raw");
 }

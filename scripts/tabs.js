@@ -7,7 +7,7 @@ const tabs = {
     "99": "container-tab-99",
 }
 
-function switchTab(newTab, game, first=false) {
+export function switchTab(newTab, game, first=false) {
     let currentTabString = tabs[Object.keys(tabs)[game.tab]];
     let newTabString = tabs[Object.keys(tabs)[newTab]];
     console.log(currentTabString, newTabString)

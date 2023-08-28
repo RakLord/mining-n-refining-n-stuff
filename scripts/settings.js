@@ -1,4 +1,5 @@
-export function settingsInit(game, tabContainer) {
+import { loadAndUpdate } from "./functions.js";
+export function settingsInit() {
 
     let saveButton = $("#save-game");
     saveButton.click(function() {
@@ -6,7 +7,5 @@ export function settingsInit(game, tabContainer) {
     });
 
     let loadButton = $("#load-game");
-    loadButton.click(function() {
-        game.loadGame();
-    })
+    loadButton.click(loadAndUpdate)
 }
