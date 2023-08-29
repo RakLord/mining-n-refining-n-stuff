@@ -1,4 +1,4 @@
-
+import { switchTab } from "./tabs.js";
 export function headerText(text){
     let header = $("#header");
     let headerWidth = header.width();
@@ -90,4 +90,5 @@ export function updateInventory(inv) {
 export function loadAndUpdate() {
     game.loadGame();
     updateInventory("raw");
+    switchTab("0", game);
 }

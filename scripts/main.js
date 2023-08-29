@@ -41,8 +41,7 @@ function init() {
     $("#tab99").on("click", function() {switchTab(5, game);});
 
 
-    console.log("AAAAAAAAAAAAA");
-    console.log(formatValue);
+    let x = setInterval(mine, 1000, game);
     updateData(dataDisplays, game, formatValue);
     switchTab(game.tab, game, true)
     headerText("Hi :)");
